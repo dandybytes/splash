@@ -1,5 +1,9 @@
 .Status {
+    position: absolute;
+    top: 4vmin;
+    left: 4vmin;
     margin: 0 0 1rem 0;
+    color: #465a72;
     font-family: "Open Sans", sans-serif;
     font-size: 2vmin;
     /* font-weight: 300; */

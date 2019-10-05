@@ -1,8 +1,13 @@
 import React from "react";
 import "./Status.css";
 
-const Status = () => {
-    return <p className="Status">moves left: </p>;
+const Status = ({movesLeft}) => {
+    return (
+        <div className="Status">
+            <span className="Status-title">moves:</span>
+            <span className="Status-figure">{movesLeft}</span>
+        </div>
+    );
 };
 
 export default Status;

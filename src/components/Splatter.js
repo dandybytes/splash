@@ -2,15 +2,14 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Splatter.css";
 
-const Splatter = ({size, color}) => {
+const Splatter = ({size, color, restart}) => {
     return (
-        <div className="Splatter">
+        <div className="Splatter" onClick={restart}>
             <p className="Splatter-text">restart</p>
             <svg
                 width={size}
                 height={size}
                 fill={color}
-                onClick={() => console.log("svg clicked")}
                 x="0px"
                 y="0px"
                 viewBox="0 0 275.993 275.993"
