@@ -9,7 +9,6 @@
 
 .Splatter-svg {
     fill: tomato;
-    color: red;
 }
 
 .Splatter-text {
@@ -18,5 +17,5 @@
     text-transform: uppercase;
     font-weight: 700;
     font-size: 1.75vmin;
-    transform: rotate(-15deg) skew(-15deg);
+    transform: rotate(-15deg) skew(-1s5deg);
 }

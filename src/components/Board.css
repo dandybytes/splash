@@ -1,0 +1,8 @@
+.Board {
+    height: 45vmin;
+    width: 45vmin;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2vmin;
+    /* background-color: teal; */
+}

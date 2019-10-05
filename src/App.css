@@ -1,3 +1,10 @@
 .App {
+    position: relative;
+    width: 80vmin;
+    height: 80vmin;
+    border: 5vmin;
+    padding: 5vmin;
+    background-color: rgba(170, 185, 205, 0.7);
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.4), 0 0 0.6rem #999;
     text-align: center;
 }
