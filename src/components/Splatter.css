@@ -1,0 +1,22 @@
+.Splatter {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 4vmin;
+    right: 4vmin;
+}
+
+.Splatter-svg {
+    fill: tomato;
+    color: red;
+}
+
+.Splatter-text {
+    position: absolute;
+    color: #465a72;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.75vmin;
+    transform: rotate(-15deg) skew(-15deg);
+}
