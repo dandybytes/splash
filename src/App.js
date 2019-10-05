@@ -15,6 +15,11 @@ function App() {
     let [gameBoard, setGameBoard] = useState(generateRandomBoard());
     let [movesLeft, setMovesLeft] = useState(maxMoves);
 
+    const resetGame = () => {
+        setGameBoard(generateRandomBoard());
+        setMovesLeft(maxMoves);
+    };
+
     const splashColor = color => {
         console.log("splashing color: ", color);
         if (movesLeft > 0) {
@@ -26,8 +31,8 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <Logo />
-                <Message />
-                <Splatter restart={() => setGameBoard(generateRandomBoard())} />
+                <Message movesLeft={movesLeft > 0} />
+                <Splatter resetGame={resetGame} movesLeft={movesLeft > 0} />
                 <Status movesLeft={movesLeft} />
             </header>
             <main className="App-main">

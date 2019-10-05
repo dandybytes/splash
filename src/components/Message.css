@@ -2,6 +2,15 @@
     font-family: "Open Sans", sans-serif;
     margin-bottom: 3.5vmin;
     text-align: center;
+}
+
+.gameOn {
     font-size: 2.3vmin;
     color: #999;
+}
+
+.gameOver {
+    color: firebrick;
+    font-weight: 700;
+    font-size: 5vmin;
 }

@@ -2,11 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Splatter.css";
 
-const Splatter = ({size, color, restart}) => {
+const Splatter = ({size, color, resetGame, movesLeft}) => {
     return (
-        <div className="Splatter" onClick={restart}>
-            <p className="Splatter-text">restart</p>
+        <div className="Splatter" onClick={resetGame}>
+            <p className="Splatter-text">{movesLeft ? "reset" : "play again"}</p>
             <svg
+                className="Splatter-svg"
                 width={size}
                 height={size}
                 fill={color}
@@ -70,7 +71,7 @@ Splatter.propTypes = {
 };
 
 Splatter.defaultProps = {
-    size: "12vmin",
+    size: "15vmin",
     color: "tomato"
 };
 

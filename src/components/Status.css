@@ -1,7 +1,14 @@
 .Status {
     position: absolute;
-    top: 4vmin;
-    left: 4vmin;
+    top: 6vmin;
+    left: 6vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 10vmin;
+    width: 10vmin;
+    border: 0.2vmin dashed #465a72;
+    border-radius: 50%;
     margin: 0 0 1rem 0;
     color: #465a72;
     font-family: "Open Sans", sans-serif;
