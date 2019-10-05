@@ -1,0 +1,13 @@
+.InkPot {
+    width: 4vmin;
+    height: 4vmin;
+    /* border: 2px solid #ccc; */
+    border-radius: 50%;
+    outline: none;
+    box-shadow: none;
+    transition: box-shadow 0.2s;
+}
+
+.InkPot:hover {
+    box-shadow: 0.4vmin 0.4vmin 0.8vmin #333;
+}

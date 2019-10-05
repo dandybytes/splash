@@ -4,6 +4,7 @@ import Splatter from "./components/Splatter";
 import Message from "./components/Message";
 import Status from "./components/Status";
 import Board from "./components/Board";
+import Controls from "./components/Controls";
 import {gameColors} from "./data/settings";
 import "./App.css";
 
@@ -15,11 +16,16 @@ function App() {
 
     return (
         <div className="App">
-            <Logo />
-            <Message />
-            <Splatter />
-            {/* <Status /> */}
-            <Board colors={gameBoard} />
+            <header className="App-header">
+                <Logo />
+                <Message />
+                <Splatter />
+                {/* <Status /> */}
+            </header>
+            <main className="App-main">
+                <Board colors={gameBoard} />
+                <Controls />
+            </main>
         </div>
     );
 }
