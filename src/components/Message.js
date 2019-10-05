@@ -1,11 +1,11 @@
 import React from "react";
-import {instructions, messageGameOver} from "../data/settings";
+import {instructions, messageGameOver, messageGameWon} from "../data/settings";
 import "./Message.css";
 
-const Message = ({movesLeft}) => {
+const Message = ({movesLeft, gameWon}) => {
     return (
         <p className={`Message${movesLeft ? " gameOn" : " gameOver"}`}>
-            {movesLeft ? instructions : messageGameOver}
+            {gameWon ? messageGameWon : movesLeft ? instructions : messageGameOver}
         </p>
     );
 };

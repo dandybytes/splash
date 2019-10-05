@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Logo from "./components/Logo";
 import Splatter from "./components/Splatter";
 import Message from "./components/Message";
@@ -14,15 +14,22 @@ function App() {
 
     let [gameBoard, setGameBoard] = useState(generateRandomBoard());
     let [movesLeft, setMovesLeft] = useState(maxMoves);
+    let [gameWon, setGameWon] = useState(false);
 
     const resetGame = () => {
         setGameBoard(generateRandomBoard());
         setMovesLeft(maxMoves);
     };
 
+    const allSquaresSameColor = () => gameBoard.every(color => color === gameBoard[0]);
+
+    useEffect(() => {
+        if (allSquaresSameColor()) setGameWon(true);
+    }, [movesLeft]);
+
     const splashColor = color => {
         console.log("splashing color: ", color);
-        if (movesLeft > 0) {
+        if (movesLeft > 0 && !gameWon) {
             setMovesLeft(movesLeft - 1);
         }
     };
@@ -33,7 +40,7 @@ function App() {
                 <Logo />
                 <Message movesLeft={movesLeft > 0} />
                 <Splatter resetGame={resetGame} movesLeft={movesLeft > 0} />
-                <Status movesLeft={movesLeft} />
+                <Status movesLeft={movesLeft} gameWon={gameWon} />
             </header>
             <main className="App-main">
                 <Board colors={gameBoard} />

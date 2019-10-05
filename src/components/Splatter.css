@@ -10,7 +10,7 @@
 }
 
 .Splatter-svg {
-    fill: tomato;
+    fill: #465a72;
 }
 
 .Splatter:hover {
@@ -20,7 +20,7 @@
 .Splatter-text {
     position: absolute;
     max-width: 6vmin;
-    color: #465a72;
+    color: white;
     text-transform: uppercase;
     font-weight: 700;
     font-size: 1.75vmin;
