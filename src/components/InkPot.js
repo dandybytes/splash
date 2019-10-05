@@ -1,12 +1,12 @@
 import React from "react";
 import "./InkPot.css";
 
-const InkPot = ({color, splashColor}) => {
+const InkPot = ({color, handleColorButtonClick}) => {
     return (
         <button
             className="InkPot"
             style={{backgroundColor: color}}
-            onClick={() => splashColor(color)}
+            onClick={() => handleColorButtonClick(color)}
         ></button>
     );
 };

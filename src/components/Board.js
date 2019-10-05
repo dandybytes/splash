@@ -6,7 +6,7 @@ const Board = ({colors}) => {
     return (
         <div className="Board">
             {colors.map((color, index) => (
-                <Square key={index} color={color} />
+                <Square key={index} color={color} index={index} />
             ))}
         </div>
     );

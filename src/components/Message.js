@@ -4,7 +4,7 @@ import "./Message.css";
 
 const Message = ({movesLeft, gameWon}) => {
     return (
-        <p className={`Message${movesLeft ? " gameOn" : " gameOver"}`}>
+        <p className={`Message${movesLeft && !gameWon ? " gameOn" : " gameOver"}`}>
             {gameWon ? messageGameWon : movesLeft ? instructions : messageGameOver}
         </p>
     );

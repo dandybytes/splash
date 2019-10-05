@@ -25,11 +25,46 @@ function App() {
 
     useEffect(() => {
         if (allSquaresSameColor()) setGameWon(true);
+        // eslint-disable-next-line
     }, [movesLeft]);
 
-    const splashColor = color => {
-        console.log("splashing color: ", color);
+    const handleColorButtonClick = newColor => {
+        // handle click only if game not yet won and moves still available
         if (movesLeft > 0 && !gameWon) {
+            // clone gameBoard to prevent affecting the original array
+            let colorArr = [...gameBoard];
+            const oldColor = colorArr[0];
+
+            // use cache Set to prevent redundant operations in recursion
+            const colorIndexCache = new Set();
+            // paint given index to new color and spread to available adjacent cells
+            const splashColor = colorIndex => {
+                // if cell of specified index already in cache, prevent redundant operation
+                if (colorIndexCache.has(colorIndex)) {
+                    return colorArr;
+                } else {
+                    colorIndexCache.add(colorIndex);
+
+                    if (colorArr[colorIndex] === oldColor) {
+                        colorArr[colorIndex] = newColor;
+                        const nextSplashWave = [];
+                        // if current cell not in first row, add cell above it to splash wave
+                        if (colorIndex > 14) nextSplashWave.push(colorIndex - 15);
+                        // if current cell not in last row, add cell below it to splash wave
+                        if (colorIndex < 15 * 14) nextSplashWave.push(colorIndex + 15);
+                        // if current cell not in first column, add cell to its left to splash wave
+                        if (colorIndex % 15 !== 0) nextSplashWave.push(colorIndex - 1);
+                        // if current cell not in last column, add cell to its right to splash wave
+                        if (colorIndex % 15 !== 14) nextSplashWave.push(colorIndex + 1);
+                        nextSplashWave.forEach(ind => splashColor(ind));
+                    }
+
+                    return colorArr;
+                }
+            };
+
+            colorArr = splashColor(0);
+            setGameBoard(colorArr);
             setMovesLeft(movesLeft - 1);
         }
     };
@@ -38,13 +73,13 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <Logo />
-                <Message movesLeft={movesLeft > 0} />
+                <Message movesLeft={movesLeft > 0} gameWon={gameWon} />
                 <Splatter resetGame={resetGame} movesLeft={movesLeft > 0} />
                 <Status movesLeft={movesLeft} gameWon={gameWon} />
             </header>
             <main className="App-main">
                 <Board colors={gameBoard} />
-                <Controls splashColor={splashColor} />
+                <Controls handleColorButtonClick={handleColorButtonClick} />
             </main>
         </div>
     );
