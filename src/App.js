@@ -19,6 +19,7 @@ function App() {
     const resetGame = () => {
         setGameBoard(generateRandomBoard());
         setMovesLeft(maxMoves);
+        setGameWon(false);
     };
 
     const allSquaresSameColor = () => gameBoard.every(color => color === gameBoard[0]);
